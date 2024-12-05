@@ -25,3 +25,18 @@
   transform: scale(1.02); 
   transition: all 0.2s ease-in-out; 
 }
+
+@media (prefers-color-scheme: dark) {
+  .flex-container {
+    background-color: #263238; 
+  }
+
+  .flex-container > div {
+    background-color: #37474f; 
+    border: 1px solid #455a64;
+    color: #eceff1;
+  }
+
+  .flex-container > div:hover {
+    background-color: #546e7a; 
+  }
