@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Profile of John Michael Maala</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
     <header>
@@ -13,7 +13,7 @@
     </header>
     <div class="container">
         <section>
-            <h1>About Me</h1>
+            <h2>About Me</h2>
             <p>My name is John Michael Maala, also known as Michael or JM. I am a student with a keen interest in technology, inspired by my father’s printing business.</p>
         </section>
 
@@ -58,18 +58,19 @@
             </table>
         </section>
 
-        <section>
+        <section id="app">
             <h2>Picture Gallery</h2>
-            <div class="gallery">
-                <img src="cat.jpg" alt="Cat">
-                <img src="cat_2.jpg" alt="Cat 2">
+            <div class="gallery" ref="gallery">
+                <img v-for="image in images" :src="image.src" :alt="image.alt" :key="image.alt">
             </div>
-        </section>
+            <button @click="scrollLeft">Left</button>
+            <button @click="scrollRight">Right</button>
+        </section>        
 
         <section>
             <h2>Links</h2>
             <ul class="link">
-                <li><a href="https://github.com/apcjomaala1" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/apcjomaala1">GitHub</a></li>
             </ul>
         </section>
 
@@ -80,9 +81,11 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 John Michael Maala. All rights reserved.</p>
+        <p>&copy; 2025 John Michael Maala. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
     <script src="js/script.js"></script>
+
 </body>
 </html>
