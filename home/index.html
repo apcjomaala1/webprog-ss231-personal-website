@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Profile of John Michael Maala</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=3">
+    <link rel="stylesheet" href="css/styles.css?v=3.1">
 </head>
 <body>
     <header>
@@ -63,21 +63,43 @@
             <div class="gallery" ref="gallery">
                 <img v-for="image in images" :src="image.src" :alt="image.alt" :key="image.alt">
             </div>
-            <button @click="scrollLeft">Left</button>
-            <button @click="scrollRight">Right</button>
+            <button class="btn" @click="scrollLeft">Left</button>
+            <button class="btn" @click="scrollRight">Right</button>
         </section>        
 
         <section>
             <h2>Links</h2>
             <ul class="link">
-                <li><a href="https://github.com/apcjomaala1">GitHub</a></li>
+                <li><a href="https://github.com/apcjomaala1">GitHub</a> • <a href="https://github.com/apcjomaala1/webprog-ss231-personal-website/tree/feature/2_JOM_customize_my_website">This Repo</a></li>
             </ul>
         </section>
 
-        <div id="interact">
-            <button class="btn" onclick="displayMessage()">Click me!</button>
-            <button class="btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <div id="app2">
+            <div id="interact">
+                <button class="btn" @click="showSurvey = true">Click me!</button>
+                <button class="btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            </div>
+
+            <div v-if="showSurvey" class="overlay">
+                <div class="survey">
+                    <h2>Survey</h2>
+                    <form @submit.prevent="submitSurvey">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" v-model="surveyData.name" required>
+        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" v-model="surveyData.email" required>
+        
+                        <label for="feedback">Feedback:</label>
+                        <textarea id="feedback" v-model="surveyData.feedback" rows="5" required></textarea>
+        
+                        <button type="submit" class="btn">Submit</button>
+                        <button type="button" class="btn" @click="showSurvey = false">Close</button>
+                    </form>
+                </div>
+            </div>
         </div>
+        
     </div>
 
     <footer>

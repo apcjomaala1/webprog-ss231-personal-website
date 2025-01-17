@@ -27,3 +27,23 @@ createApp({
         },
     },
 }).mount('#app');
+
+createApp({
+    data() {
+        return {
+            showSurvey: false, // Controls visibility of the survey overlay
+            surveyData: {
+                name: '',
+                email: '',
+                feedback: '',
+            },
+        };
+    },
+    methods: {
+        submitSurvey() {
+            alert(`Survey Submitted!\nName: ${this.surveyData.name}\nEmail: ${this.surveyData.email}\nFeedback: ${this.surveyData.feedback}`);
+            this.showSurvey = false; // Close the survey after submission
+            this.surveyData = { name: '', email: '', feedback: '' }; // Reset form
+        },
+    },
+}).mount('#app2');
